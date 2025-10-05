@@ -7,6 +7,8 @@
 #include "Engine/DataAsset.h"
 #include "OInputConfig.generated.h"
 
+class UInputMappingContext;
+
 USTRUCT(BlueprintType)
 struct FOInputAction
 {
@@ -15,8 +17,13 @@ struct FOInputAction
 	UPROPERTY(EditDefaultsOnly)
 	const class UInputAction* InputAction = nullptr;
 
-	UPROPERTY(EditDefaultsOnly)
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, meta = (Categories = "InputTag"))
 	FGameplayTag InputTag = FGameplayTag();
+
+	bool IsValid() const
+	{
+		return InputTag.IsValid() && InputAction;
+	}
 };
 
 /**
@@ -32,5 +39,8 @@ public:
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	TArray<FOInputAction> AbilityInput;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
+	UInputMappingContext* DefaultMappingContext;
 	
 };

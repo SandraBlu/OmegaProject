@@ -3,3 +3,29 @@
 
 #include "Framework/OPlayerController.h"
 
+#include "GameFramework/Character.h"
+#include "UI/GAS/DamageTextWidget.h"
+
+void AOPlayerController::ShowDamageNumber_Implementation(float DamageAmount, ACharacter* TargetCharacter, bool bBlockedHit, bool bDodgedHit, bool bCriticalHit)
+{
+	 if (IsValid(TargetCharacter) && DamageTextComponentClass && IsLocalController())
+	 {
+	 	PlayerTeamID = FGenericTeamId(0);
+	 	
+	 	UDamageTextWidget* DamageText = NewObject<UDamageTextWidget>(TargetCharacter, DamageTextComponentClass);
+	 	DamageText->RegisterComponent();
+	 	DamageText->AttachToComponent(TargetCharacter->GetRootComponent(), FAttachmentTransformRules::KeepRelativeTransform);
+	 	DamageText->DetachFromComponent(FDetachmentTransformRules::KeepWorldTransform);
+	 	DamageText->SetDamageText(DamageAmount, bBlockedHit, bDodgedHit, bCriticalHit);
+	 }
+}
+
+AOPlayerController::AOPlayerController()
+{
+	bReplicates = true;
+}
+
+FGenericTeamId AOPlayerController::GetGenericTeamId() const
+{
+	return PlayerTeamID;
+}

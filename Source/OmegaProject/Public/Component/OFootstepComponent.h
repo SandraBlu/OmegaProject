@@ -7,22 +7,26 @@
 #include "OFootstepComponent.generated.h"
 
 
+enum class EFoot : uint8;
+
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class OMEGAPROJECT_API UOFootstepComponent : public UActorComponent
 {
 	GENERATED_BODY()
 
 public:	
-	// Sets default values for this component's properties
+	
 	UOFootstepComponent();
 
-protected:
-	// Called when the game starts
-	virtual void BeginPlay() override;
+	void HandleFootstep(EFoot Foot);
 
-public:	
-	// Called every frame
-	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
+protected:
+	
+	UPROPERTY(EditDefaultsOnly)
+	FName LeftFootSocket = TEXT("foot_l");
+
+	UPROPERTY(EditDefaultsOnly)
+	FName RightFootSocket = TEXT("foot_r");	
 
 		
 };

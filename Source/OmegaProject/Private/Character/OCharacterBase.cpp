@@ -4,17 +4,19 @@
 #include "Character/OCharacterBase.h"
 
 #include "AbilitySystemComponent.h"
+#include "OGameplayTags.h"
+#include "Component/DebuffNiagaraComponent.h"
 #include "GAS/OAbilitySystemComponent.h"
 
 // Sets default values
 AOCharacterBase::AOCharacterBase()
 {
 	PrimaryActorTick.bCanEverTick = true;
-	/*EffectDebuffComponent = CreateDefaultSubobject<UDebuffNiagaraComponent>("EffectDebuffComponent");
+	EffectDebuffComponent = CreateDefaultSubobject<UDebuffNiagaraComponent>("EffectDebuffComponent");
 	EffectDebuffComponent->SetupAttachment(GetRootComponent());
-	EffectDebuffComponent->DebuffTag = FRGameplayTags::Get().Debuff_Stun;
+	EffectDebuffComponent->DebuffTag = FOGameplayTags::Get().Debuff_Stun;
 
-	EffectAttachComp = CreateDefaultSubobject<USceneComponent>("EffectAttachPoint");
+	/*EffectAttachComp = CreateDefaultSubobject<USceneComponent>("EffectAttachPoint");
 	EffectAttachComp->SetupAttachment(GetRootComponent());
 	PassiveCloak = CreateDefaultSubobject<UPassiveNiagaraComponent>("CloakComponent");
 	PassiveCloak->SetupAttachment(EffectAttachComp);
@@ -59,8 +61,8 @@ void AOCharacterBase::GrantAbilities()
 {
 	UOAbilitySystemComponent* RASC = CastChecked<UOAbilitySystemComponent>(AbilitySystemComponent);
 	if (!HasAuthority()) return;
-	//RASC->AddGrantedAbilities(GrantedAbilities);
-	//RASC->AddPassiveAbilities(GrantedPassiveAbilities);
+	RASC->AddGrantedAbilities(GrantedAbilities);
+	RASC->AddPassiveAbilities(GrantedPassiveAbilities);
 }
 
 void AOCharacterBase::Tick(float DeltaTime)
@@ -81,6 +83,12 @@ UAbilitySystemComponent* AOCharacterBase::GetAbilitySystemComponent() const
 {
 	return AbilitySystemComponent;
 }
+
+UOCombatComponent* AOCharacterBase::GetCombatComponent() const
+{
+	return CombatComp;
+}
+
 UAnimMontage* AOCharacterBase
 ::GetHitReactMontage_Implementation()
 {

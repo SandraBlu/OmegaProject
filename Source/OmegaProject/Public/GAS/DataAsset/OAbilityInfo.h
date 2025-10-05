@@ -10,7 +10,7 @@
 class UGameplayAbility;
 
 USTRUCT(BlueprintType)
-struct FRAbilityInfo
+struct FAbilityInfo
 {
 	GENERATED_BODY()
 	
@@ -51,8 +51,8 @@ class OMEGAPROJECT_API UOAbilityInfo : public UDataAsset
 public:
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "AbilityInfo")
-	TArray<FRAbilityInfo> AbilityInfo;
+	TArray<FAbilityInfo> AbilityInfo;
 
-	FRAbilityInfo FindAbilityInfoForTag(const FGameplayTag& AbilityTag, bool bLogNotFound = false) const;
+	FAbilityInfo FindAbilityInfoForTag(const FGameplayTag& AbilityTag, bool bLogNotFound = false) const;
 	
 };

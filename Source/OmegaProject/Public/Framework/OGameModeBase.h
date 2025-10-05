@@ -6,8 +6,9 @@
 #include "GameFramework/GameModeBase.h"
 #include "OGameModeBase.generated.h"
 
+enum class EGameDifficulty : uint8;
+class UOAbilityInfo;
 class UOCharacterClassInfo;
-enum class EOGameDifficulty : uint8;
 class UAbilityInfo;
 
 /**
@@ -23,13 +24,13 @@ public:
 	UPROPERTY(EditDefaultsOnly, Category = "Character Class Defaults")
 	UOCharacterClassInfo* CharacterClassInfo;
 
-//	UPROPERTY(EditDefaultsOnly, Category = "Ability Info")
-//	UAbilityInfo* AbilityInfo;
+	UPROPERTY(EditDefaultsOnly, Category = "Ability Info")
+	UOAbilityInfo* AbilityInfo;
 
-	//FORCEINLINE EOGameDifficulty GetCurrentGameDifficulty() const { return CurrentGameDifficulty;}
+	FORCEINLINE EGameDifficulty GetCurrentGameDifficulty() const { return CurrentGameDifficulty;}
 
 protected:
-	//UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Game Settings")
-//	EOGameDifficulty CurrentGameDifficulty;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Game Settings")
+	EGameDifficulty CurrentGameDifficulty;
 	
 };

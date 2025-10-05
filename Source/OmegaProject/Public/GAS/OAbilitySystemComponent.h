@@ -6,13 +6,13 @@
 #include "AbilitySystemComponent.h"
 #include "OAbilitySystemComponent.generated.h"
 
-// DECLARE_MULTICAST_DELEGATE_OneParam(FEffectAssetTags, const FGameplayTagContainer& /*AssetTags*/);
-// DECLARE_MULTICAST_DELEGATE(FAbilityGiven);
-// DECLARE_DELEGATE_OneParam(FForEachAbility, const FGameplayAbilitySpec&);
-// DECLARE_MULTICAST_DELEGATE_ThreeParams(FAbilityStatusChange, const FGameplayTag&, const FGameplayTag&, int32);
-// DECLARE_MULTICAST_DELEGATE_FourParams(FAbilityEquipped, const FGameplayTag&, const FGameplayTag&, const FGameplayTag&, const FGameplayTag&);
-// DECLARE_MULTICAST_DELEGATE_OneParam(FDeactivatePassiveAbility, const FGameplayTag& /*AbilityTag*/);
-// DECLARE_MULTICAST_DELEGATE_TwoParams(FActivatePassiveEffect, const FGameplayTag&, bool);
+	DECLARE_MULTICAST_DELEGATE_OneParam(FEffectAssetTags, const FGameplayTagContainer& /*AssetTags*/);
+	DECLARE_MULTICAST_DELEGATE(FAbilityGiven);
+	DECLARE_DELEGATE_OneParam(FForEachAbility, const FGameplayAbilitySpec&);
+	DECLARE_MULTICAST_DELEGATE_ThreeParams(FAbilityStatusChange, const FGameplayTag&, const FGameplayTag&, int32);
+	DECLARE_MULTICAST_DELEGATE_FourParams(FAbilityEquipped, const FGameplayTag&, const FGameplayTag&, const FGameplayTag&, const FGameplayTag&);
+	DECLARE_MULTICAST_DELEGATE_OneParam(FDeactivatePassiveAbility, const FGameplayTag& /*AbilityTag*/);
+	DECLARE_MULTICAST_DELEGATE_TwoParams(FActivatePassiveEffect, const FGameplayTag&, bool);
 /**
  * 
  */
@@ -21,7 +21,7 @@ class OMEGAPROJECT_API UOAbilitySystemComponent : public UAbilitySystemComponent
 {
 	GENERATED_BODY()
 
-	/*public:
+	public:
 	
 	void AbilityActorInfoSet();
 	FEffectAssetTags EffectAssetTags;
@@ -36,7 +36,7 @@ class OMEGAPROJECT_API UOAbilitySystemComponent : public UAbilitySystemComponent
 	bool bGrantedAbilitiesGiven = false;
 
 	void AbilityInputTagPressed(const FGameplayTag& InputTag);
-	void AbilityInputTagHeld(const FGameplayTag& InputTag);
+	//void AbilityInputTagHeld(const FGameplayTag& InputTag);
 	void AbilityInputTagReleased(const FGameplayTag& InputTag);
 	void ForEachAbility(const FForEachAbility& Delegate);
 	
@@ -87,6 +87,6 @@ protected:
 	void ClientEffectApplied(UAbilitySystemComponent* AbilitySystemComponent, const FGameplayEffectSpec& EffectSpec, FActiveGameplayEffectHandle ActiveEffectHandle);
 	
 	UFUNCTION(Client, Reliable)
-	void ClientUpdateAbilityStatus(const FGameplayTag& AbilityTag, const FGameplayTag& StatusTag, int32 AbilityLevel);*/
+	void ClientUpdateAbilityStatus(const FGameplayTag& AbilityTag, const FGameplayTag& StatusTag, int32 AbilityLevel);
 	
 };

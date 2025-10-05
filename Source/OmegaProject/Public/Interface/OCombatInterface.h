@@ -8,6 +8,7 @@
 #include "UObject/Interface.h"
 #include "OCombatInterface.generated.h"
 
+class UOCombatComponent;
 class AOWeapon;
 class UNiagaraSystem;
 class UAbilitySystemComponent;
@@ -57,6 +58,8 @@ public:
 	UFUNCTION(BlueprintNativeEvent)
 	int32 GetPlayerLevel();
 
+	virtual UOCombatComponent* GetCombatComponent() const = 0;
+	
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
 	FVector GetCombatSocketLocation(const FGameplayTag& CombatSocketTag);
 

@@ -9,6 +9,7 @@
 #include "Interface/OCombatInterface.h"
 #include "OCharacterBase.generated.h"
 
+class UDebuffNiagaraComponent;
 enum class ECharacterClass : uint8;
 class UNiagaraSystem;
 class UGameplayEffect;
@@ -22,7 +23,7 @@ class OMEGAPROJECT_API AOCharacterBase : public ACharacter, public IAbilitySyste
 	GENERATED_BODY()
 
 public:
-	// Sets default values for this character's properties
+
 	AOCharacterBase();
 
 	virtual void Tick(float DeltaSeconds) override;
@@ -33,7 +34,7 @@ public:
 	UAttributeSet* GetAttributeSet() const { return AttributeSet; }
 
 	//Combat Interface
-	
+	virtual UOCombatComponent* GetCombatComponent() const override;
 	virtual UAnimMontage* GetHitReactMontage_Implementation() override;
 	virtual UAnimMontage* GetStunnedMontage_Implementation() override;
 	virtual bool IsDead_Implementation() const override;
@@ -45,7 +46,6 @@ public:
 	virtual FOnDeath GetOnDeathDelegate() override;
 	virtual void Die(const FVector& DeathImpulse) override;
 	virtual FOnDamageSignature& GetOnDamageSignature() override;
-	//Combat Interface
 
 	FOnASCRegistered OnASCRegistered;
 	FOnDeath OnDeath;
@@ -104,8 +104,11 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Combat")
 	USoundBase* DeathCry;
 
-	//UPROPERTY(VisibleAnywhere)
-	//UDebuffNiagaraComponent* EffectDebuffComponent;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Combat, meta = (AllowPrivateAccess = "true"))
+	UOCombatComponent* CombatComp;
+	
+	UPROPERTY(VisibleAnywhere)
+	UDebuffNiagaraComponent* EffectDebuffComponent;
 	
 private:
 	

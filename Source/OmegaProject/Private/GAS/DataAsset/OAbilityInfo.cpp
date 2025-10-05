@@ -3,9 +3,9 @@
 
 #include "GAS/DataAsset/OAbilityInfo.h"
 
-FRAbilityInfo UOAbilityInfo::FindAbilityInfoForTag(const FGameplayTag& AbilityTag, bool bLogNotFound) const
+FAbilityInfo UOAbilityInfo::FindAbilityInfoForTag(const FGameplayTag& AbilityTag, bool bLogNotFound) const
 {
-	for (const FRAbilityInfo& Info : AbilityInfo)
+	for (const FAbilityInfo& Info : AbilityInfo)
 	{
 		if (Info.AbilityTag == AbilityTag)
 		{
@@ -16,5 +16,5 @@ FRAbilityInfo UOAbilityInfo::FindAbilityInfoForTag(const FGameplayTag& AbilityTa
 	{
 		UE_LOG(LogTemp, Warning, TEXT("Can't find info for AbilityTag[%s] on AbilityInfo [%s]"), *AbilityTag.ToString(), *GetNameSafe(this));
 	}
-	return FRAbilityInfo();
+	return FAbilityInfo();
 }

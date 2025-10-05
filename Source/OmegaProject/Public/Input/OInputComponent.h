@@ -15,33 +15,24 @@ class OMEGAPROJECT_API UOInputComponent : public UEnhancedInputComponent
 {
 	GENERATED_BODY()
 
-	template<class UserClass, typename PressedFuncType, typename ReleasedFuncType, typename HeldFuncType>
-	void BindAbilityActions(const UOInputConfig* InputConfig, UserClass* Object, PressedFuncType PressedFunc, ReleasedFuncType  ReleasedFunc, HeldFuncType HeldFunc);
+public:
+	
+	template<class UserClass, typename CallBackFunc>
+	void BindAbilityActions(const UOInputConfig* InputConfig, UserClass* Object, CallBackFunc PressedFunc, CallBackFunc  ReleasedFunc);
 	
 };
 
-template <class UserClass, typename PressedFuncType, typename ReleasedFuncType, typename HeldFuncType>
-void UOInputComponent::BindAbilityActions(const UOInputConfig* InputConfig, UserClass* Object,
-	PressedFuncType PressedFunc, ReleasedFuncType ReleasedFunc, HeldFuncType HeldFunc)
+template<class UserClass, typename CallBackFunc>
+	void UOInputComponent::BindAbilityActions(const UOInputConfig* InputConfig, UserClass* Object, CallBackFunc PressedFunc, CallBackFunc ReleasedFunc)
 {
-	check(InputConfig);
+	checkf(InputConfig,TEXT("Input config data asset is null,can not proceed with binding"));
 
 	for (const FOInputAction& Action : InputConfig->AbilityInput)
 	{
-		if (Action.InputAction && Action.InputTag.IsValid())
+		if (!Action.IsValid()) continue;
 		{
-			if (PressedFunc)
-			{
-				BindAction(Action.InputAction, ETriggerEvent::Started, Object, PressedFunc, Action.InputTag);
-			}
-			if (ReleasedFunc)
-			{
-				BindAction(Action.InputAction, ETriggerEvent::Completed, Object, ReleasedFunc, Action.InputTag);
-			}
-			if (HeldFunc)
-			{
-				BindAction(Action.InputAction, ETriggerEvent::Triggered, Object, HeldFunc, Action.InputTag);
-			}
+			BindAction(Action.InputAction, ETriggerEvent::Started, Object, PressedFunc, Action.InputTag);
+			BindAction(Action.InputAction, ETriggerEvent::Completed, Object, ReleasedFunc, Action.InputTag);
 		}
 	}
 }
