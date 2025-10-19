@@ -52,53 +52,60 @@ class OMEGAPROJECT_API IOCombatInterface
 
 	
 public:
-	UFUNCTION(BlueprintNativeEvent)
+	UFUNCTION(BlueprintNativeEvent, Category = "Combat")
 	void GetHit(const FVector& ImpactPoint);
 	
-	UFUNCTION(BlueprintNativeEvent)
+	UFUNCTION(BlueprintNativeEvent, Category = "Combat")
 	int32 GetPlayerLevel();
 
 	virtual UOCombatComponent* GetCombatComponent() const = 0;
 	
-	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Combat")
 	FVector GetCombatSocketLocation(const FGameplayTag& CombatSocketTag);
 
-	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Combat")
 	UAnimMontage* GetHitReactMontage();
 
-	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Combat")
 	UAnimMontage* GetStunnedMontage();
 	
 	virtual void Die(const FVector& DeathImpulse) = 0;
 
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent, Category = "Combat")
 	bool IsDead() const;
 
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Combat")
 	void FaceTarget(const FVector& Target);
 
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent, Category = "Combat")
 	AActor* GetAvatar();
 	
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent, Category = "Combat")
 	void SetCombatTarget(AActor* InCombatTarget);
 	
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent, Category = "Combat")
 	AActor* GetCombatTarget() const;
 
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent, Category = "Combat")
 	TArray<FTaggedMontage> GetAttackMontages();
 
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent, Category = "Combat")
 	UNiagaraSystem* GetBloodEffect();
 
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent, Category = "Combat")
 	ECharacterClass GetCharacterClass();
 	
 	virtual FOnASCRegistered GetOnASCRegisteredDelegate() = 0;
 	virtual FOnDeath GetOnDeathDelegate() = 0;
 	virtual FOnDamageSignature& GetOnDamageSignature() = 0;
 	
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent, Category = "Combat")
 	AActor* GetCurrentEquippedWeapon(AOWeapon* InWeapon);
+
+	//Targeting
+	UFUNCTION(BlueprintImplementableEvent, Category = "Combat")
+	void OnTargeted();
+
+	UFUNCTION(BlueprintImplementableEvent, Category = "Combat")
+	void OnTargetedEnd();
 };

@@ -24,7 +24,7 @@ AOPlayer::AOPlayer()
 	GetCharacterMovement()->NavAgentProps.bCanCrouch = true;
 	GetCharacterMovement()->MaxWalkSpeed = 500.f;
 	
-	//Gear = CreateDefaultSubobject<UREquipmentComponent>("GearComp");
+	Gear = CreateDefaultSubobject<UOEquipmentComponent>("GearComp");
 	CharacterClass = ECharacterClass::Elementalist;
 
 	LevelUpFX = CreateDefaultSubobject<UNiagaraComponent>(TEXT("VFXComp"));
@@ -61,10 +61,10 @@ int32 AOPlayer::GetPlayerLevel_Implementation()
 FVector AOPlayer::GetCombatSocketLocation_Implementation(const FGameplayTag& CombatSocketTag)
 {
 	const FOGameplayTags& GameplayTags = FOGameplayTags::Get();
-	//if (CombatSocketTag.MatchesTagExact(GameplayTags.combatSocket_weapon) && IsValid(Gear->EquippedWeapon))
-	//{
-	//	return Gear->EquippedWeapon->GetWeaponMesh()->GetSocketLocation(Gear->EquippedWeapon->FiringSocket);
-	//}
+	if (CombatSocketTag.MatchesTagExact(GameplayTags.combatSocket_weapon) && IsValid(Gear->EquippedWeapon))
+	{
+		return Gear->EquippedWeapon->GetWeaponMesh()->GetSocketLocation(Gear->EquippedWeapon->FiringSocket);
+	}
 	if (CombatSocketTag.MatchesTagExact(GameplayTags.combatSocket_handL))
 	{
 		return GetMesh()->GetSocketLocation(HandRSocket);
@@ -185,9 +185,9 @@ int32 AOPlayer::GetAbilityPoints_Implementation() const
 
 AOWeapon* AOPlayer::GetCurrentWeapon_Implementation()
 {
-	//if (Gear->EquippedWeapon)
+	if (Gear->EquippedWeapon)
 	{
-	//	return Gear->EquippedWeapon;
+		return Gear->EquippedWeapon;
 	}
 	return nullptr;
 }
@@ -237,7 +237,7 @@ void AOPlayer::InitAbilityActorInfo()
 
 void AOPlayer::AbilityInputTagPressed(FGameplayTag InputTag)
 {
-	//if (Gear->EquippedWeapon == nullptr ) return;
+	if (Gear->EquippedWeapon == nullptr ) return;
 	if (GetASC() == nullptr) return;
 	if (GetASC()) GetASC()->AbilityInputTagPressed(InputTag);
 }

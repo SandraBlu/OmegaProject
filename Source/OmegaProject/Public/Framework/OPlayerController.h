@@ -24,8 +24,12 @@ public:
 	
 	UFUNCTION(Client, Reliable)
 	void ShowDamageNumber(float DamageAmount, ACharacter* TargetCharacter, bool bBlockedHit, bool bDodgedHit, bool bCriticalHit);
-	
-private:
+
+	//Send a notification to the narrative HUD
+	UFUNCTION(BlueprintImplementableEvent)
+	void ShowNotification(const FText& Message, const float Duration = 5.f);
+
+	private:
 
 	FGenericTeamId PlayerTeamID;
 	

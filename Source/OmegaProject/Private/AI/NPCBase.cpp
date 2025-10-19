@@ -18,7 +18,7 @@
 #include "GAS/OAttributeSet.h"
 #include "Kismet/GameplayStatics.h"
 #include "OmegaProject/OmegaProject.h"
-#include "UI/GAS/OUserWidget.h"
+#include "UI/OUserWidget.h"
 
 ANPCBase::ANPCBase()
 {
