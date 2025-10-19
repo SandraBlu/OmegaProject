@@ -1,0 +1,20 @@
+Begin Object Class=/Script/Engine.Blueprint Name="ControllerData_PC_Gamepad_Xbox" ExportPath="/Script/Engine.Blueprint'/NarrativeCommonUI/ControllerData/ControllerData_PC_Gamepad_Xbox.ControllerData_PC_Gamepad_Xbox'"
+   Begin Object Class=/Script/UnrealEd.SceneThumbnailInfo Name="SceneThumbnailInfo_0" ExportPath="/Script/UnrealEd.SceneThumbnailInfo'/NarrativeCommonUI/ControllerData/ControllerData_PC_Gamepad_Xbox.ControllerData_PC_Gamepad_Xbox:SceneThumbnailInfo_0'"
+   End Object
+   Begin Object Class=/Script/Engine.EdGraph Name="EventGraph" ExportPath="/Script/Engine.EdGraph'/NarrativeCommonUI/ControllerData/ControllerData_PC_Gamepad_Xbox.ControllerData_PC_Gamepad_Xbox:EventGraph'"
+   End Object
+   Begin Object Name="SceneThumbnailInfo_0" ExportPath="/Script/UnrealEd.SceneThumbnailInfo'/NarrativeCommonUI/ControllerData/ControllerData_PC_Gamepad_Xbox.ControllerData_PC_Gamepad_Xbox:SceneThumbnailInfo_0'"
+   End Object
+   Begin Object Name="EventGraph" ExportPath="/Script/Engine.EdGraph'/NarrativeCommonUI/ControllerData/ControllerData_PC_Gamepad_Xbox.ControllerData_PC_Gamepad_Xbox:EventGraph'"
+      Schema="/Script/CoreUObject.Class'/Script/BlueprintGraph.EdGraphSchema_K2'"
+      bAllowDeletion=False
+      GraphGuid=32430FAD4B7E08032A79248F04FCED80
+   End Object
+   ParentClass="/Script/CoreUObject.Class'/Script/CommonInput.CommonInputBaseControllerData'"
+   BlueprintSystemVersion=2
+   UbergraphPages(0)="/Script/Engine.EdGraph'EventGraph'"
+   ThumbnailInfo="/Script/UnrealEd.SceneThumbnailInfo'SceneThumbnailInfo_0'"
+   GeneratedClass="/Script/Engine.BlueprintGeneratedClass'ControllerData_PC_Gamepad_Xbox_C'"
+   bLegacyNeedToPurgeSkelRefs=False
+   BlueprintGuid=92A25CCE43057AB828B0ACB8450FC30B
+End Object

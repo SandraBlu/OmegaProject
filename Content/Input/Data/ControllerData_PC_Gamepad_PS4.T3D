@@ -1,0 +1,20 @@
+Begin Object Class=/Script/Engine.Blueprint Name="ControllerData_PC_Gamepad_PS4" ExportPath="/Script/Engine.Blueprint'/NarrativeCommonUI/ControllerData/ControllerData_PC_Gamepad_PS4.ControllerData_PC_Gamepad_PS4'"
+   Begin Object Class=/Script/UnrealEd.SceneThumbnailInfo Name="SceneThumbnailInfo_0" ExportPath="/Script/UnrealEd.SceneThumbnailInfo'/NarrativeCommonUI/ControllerData/ControllerData_PC_Gamepad_PS4.ControllerData_PC_Gamepad_PS4:SceneThumbnailInfo_0'"
+   End Object
+   Begin Object Class=/Script/Engine.EdGraph Name="EventGraph" ExportPath="/Script/Engine.EdGraph'/NarrativeCommonUI/ControllerData/ControllerData_PC_Gamepad_PS4.ControllerData_PC_Gamepad_PS4:EventGraph'"
+   End Object
+   Begin Object Name="SceneThumbnailInfo_0" ExportPath="/Script/UnrealEd.SceneThumbnailInfo'/NarrativeCommonUI/ControllerData/ControllerData_PC_Gamepad_PS4.ControllerData_PC_Gamepad_PS4:SceneThumbnailInfo_0'"
+   End Object
+   Begin Object Name="EventGraph" ExportPath="/Script/Engine.EdGraph'/NarrativeCommonUI/ControllerData/ControllerData_PC_Gamepad_PS4.ControllerData_PC_Gamepad_PS4:EventGraph'"
+      Schema="/Script/CoreUObject.Class'/Script/BlueprintGraph.EdGraphSchema_K2'"
+      bAllowDeletion=False
+      GraphGuid=32430FAD4B7E08032A79248F04FCED80
+   End Object
+   ParentClass="/Script/CoreUObject.Class'/Script/CommonInput.CommonInputBaseControllerData'"
+   BlueprintSystemVersion=2
+   UbergraphPages(0)="/Script/Engine.EdGraph'EventGraph'"
+   ThumbnailInfo="/Script/UnrealEd.SceneThumbnailInfo'SceneThumbnailInfo_0'"
+   GeneratedClass="/Script/Engine.BlueprintGeneratedClass'ControllerData_PC_Gamepad_PS4_C'"
+   bLegacyNeedToPurgeSkelRefs=False
+   BlueprintGuid=912309524EB502E649F186A2553F59CD
+End Object
