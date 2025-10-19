@@ -16,7 +16,8 @@
 				"CoreUObject",
 				"UMG",
 				"Niagara",
-				"AIModule"
+				"AIModule",
+				"CommonUI"
 			]
 		}
 	],
@@ -30,6 +31,15 @@
 		},
 		{
 			"Name": "GameplayAbilities",
+			"Enabled": true
+		},
+		{
+			"Name": "NarrativeCommonUI",
+			"Enabled": false,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/f1adaffd049b44cca254832b2beeb1b7"
+		},
+		{
+			"Name": "CommonUI",
 			"Enabled": true
 		}
 	]
