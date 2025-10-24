@@ -5,17 +5,11 @@
 
 #include "UI/UISubsystem.h"
 
-void UOUserWidget::SetWidgetController(UObject* InWidgetController)
-{
-	WidgetController = InWidgetController;
-	WidgetControllerSet();
-}
-
 void UOUserWidget::NativeConstruct()
 {
 	Super::NativeConstruct();
 
-	//Store the HUD in a subsystem
+	//Store OUserWidget in a subsystem - that way, 
 	if (UWorld* World = GetWorld())
 	{
 		if (UGameInstance* GI = World->GetGameInstance())
@@ -26,4 +20,10 @@ void UOUserWidget::NativeConstruct()
 			}
 		}
 	}
+}
+
+void UOUserWidget::SetWidgetController(UObject* InWidgetController)
+{
+	WidgetController = InWidgetController;
+	WidgetControllerSet();
 }

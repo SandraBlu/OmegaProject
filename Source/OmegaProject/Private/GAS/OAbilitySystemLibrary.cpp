@@ -11,21 +11,21 @@
 #include "GAS/DataAsset/OCharacterClassInfo.h"
 #include "Interface/OCombatInterface.h"
 #include "Kismet/GameplayStatics.h"
-#include "UI/GAS/OHUD.h"
 #include "OAbilityTypes.h"
 #include "Engine/OverlapResult.h"
 #include "Framework/Countdown/CountdownAction.h"
 #include "Framework/Countdown/OEnums.h"
 #include "GAS/OAbilitySystemComponent.h"
 #include "Kismet/KismetMathLibrary.h"
+#include "UI/MasterHUD.h"
 #include "UI/GAS/Controller/OWidgetController.h"
 
 
-bool UOAbilitySystemLibrary::MakeWidgetControllerParams(const UObject* WorldContextObject, FWidgetControllerParams& OutWCParams, AOHUD*& OutOHUD)
+bool UOAbilitySystemLibrary::MakeWidgetControllerParams(const UObject* WorldContextObject, FWidgetControllerParams& OutWCParams, AMasterHUD*& OutOHUD)
 {
 	if (APlayerController* PC = UGameplayStatics::GetPlayerController(WorldContextObject, 0))
     	{
-		OutOHUD = Cast<AOHUD>(PC->GetHUD());
+		OutOHUD = Cast<AMasterHUD>(PC->GetHUD());
     		if (OutOHUD)
     		{
     			AOPlayerState* PS = PC->GetPlayerState<AOPlayerState>();
@@ -46,38 +46,37 @@ UOverlayWidgetController* UOAbilitySystemLibrary::GetOverlayWidgetController(con
 {
 
 	FWidgetControllerParams WCParams;
-	AOHUD* OHUD = nullptr;
-	if (MakeWidgetControllerParams(WorldContextObject, WCParams, OHUD))
-	{
-		return OHUD->GetOverlayWidgetController(WCParams);
-	}
+	  AMasterHUD* OHUD = nullptr;
+	  if (MakeWidgetControllerParams(WorldContextObject, WCParams, OHUD))
+	  {
+	  	return OHUD->GetOverlayWidgetController(WCParams);
+	  }
 	return nullptr;
 }
 
 UAttributeMenuController* UOAbilitySystemLibrary::GetAttributeMenuController(const UObject* WorldContextObject)
 {
 	FWidgetControllerParams WCParams;
-	AOHUD* OHUD = nullptr;
-	if (MakeWidgetControllerParams(WorldContextObject, WCParams, OHUD))
-	{
-		return OHUD->GetAttributeMenuWidgetController(WCParams);
-	}
+	  AMasterHUD* OHUD = nullptr;
+	  if (MakeWidgetControllerParams(WorldContextObject, WCParams, OHUD))
+	  {
+	  	return OHUD->GetAttributeMenuWidgetController(WCParams);
+	  }
 	return nullptr;
 }
 
 UAbilityMenuController* UOAbilitySystemLibrary::GetAbilityMenuController(const UObject* WorldContextObject)
 {
 	FWidgetControllerParams WCParams;
-	AOHUD* OHUD = nullptr;
-	if (MakeWidgetControllerParams(WorldContextObject, WCParams, OHUD))
-	{
-			return OHUD->GetAbilityMenuWidgetController(WCParams);
-	}
+	  AMasterHUD* OHUD = nullptr;
+	  if (MakeWidgetControllerParams(WorldContextObject, WCParams, OHUD))
+	  {
+	  		return OHUD->GetAbilityMenuWidgetController(WCParams);
+	  }
 	return nullptr;
 }
 
-void UOAbilitySystemLibrary::InitializeDefaultAttributes(const UObject* WorldContextObject,
-                                                         ECharacterClass CharacterClass, float Level, UAbilitySystemComponent* ASC)
+void UOAbilitySystemLibrary::InitializeDefaultAttributes(const UObject* WorldContextObject, ECharacterClass CharacterClass, float Level, UAbilitySystemComponent* ASC)
 {
 	AActor* AvatarActor = ASC->GetAvatarActor();
 	

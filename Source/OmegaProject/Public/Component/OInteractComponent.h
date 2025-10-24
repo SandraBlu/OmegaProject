@@ -14,7 +14,7 @@ DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnInteracted, class  UOInteractCom
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnInteractPressed, class  UOInteractComponent*, Interact);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnInteractReleased, class  UOInteractComponent*, Interact);
 
-UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
+UCLASS( ClassGroup=(Custom), DisplayName = "Game Interact", meta=(BlueprintSpawnableComponent) )
 class OMEGAPROJECT_API UOInteractComponent : public UActorComponent
 {
 	GENERATED_BODY()

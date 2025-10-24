@@ -4,23 +4,23 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/HUD.h"
-#include "OHUD.generated.h"
+#include "MasterHUD.generated.h"
 
 class UAbilityMenuController;
 class UAttributeMenuController;
-class UOUserWidget;
+class UOverlayWidgetController;
 class UAttributeSet;
 class UAbilitySystemComponent;
 struct FWidgetControllerParams;
-class UOverlayWidgetController;
+class UOUserWidget;
 /**
  * 
  */
 UCLASS()
-class OMEGAPROJECT_API AOHUD : public AHUD
+class OMEGAPROJECT_API AMasterHUD : public AHUD
 {
 	GENERATED_BODY()
-	
+
 public:
 
 	UOverlayWidgetController* GetOverlayWidgetController(const FWidgetControllerParams& WCParams);
@@ -49,5 +49,4 @@ private:
 	UAbilityMenuController* AbilityMenuController;
 	UPROPERTY(EditAnywhere)
 	TSubclassOf<UAbilityMenuController> AbilityMenuControllerClass;
-	
 };

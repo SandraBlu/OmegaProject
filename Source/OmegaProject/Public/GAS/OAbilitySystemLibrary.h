@@ -8,6 +8,7 @@
 #include "Kismet/BlueprintFunctionLibrary.h"
 #include "OAbilitySystemLibrary.generated.h"
 
+class AMasterHUD;
 enum class ECountDownActionInput : uint8;
 class UOAbilitySystemComponent;
 class UOAbilityInfo;
@@ -32,7 +33,7 @@ class OMEGAPROJECT_API UOAbilitySystemLibrary : public UBlueprintFunctionLibrary
 
 	//Widget Controllers
 	UFUNCTION(BlueprintPure, Category = "OBFL|WidgetController", meta = (DefaultToSelf = "WorldContextObject"))
-	static bool MakeWidgetControllerParams(const UObject* WorldContextObject, FWidgetControllerParams& OutWCParams, AOHUD*& OutOHUD);
+	static bool MakeWidgetControllerParams(const UObject* WorldContextObject, FWidgetControllerParams& OutWCParams, AMasterHUD*& OutOHUD);
 
 	UFUNCTION(BlueprintPure, Category = "OBFL|WidgetController", meta = (DefaultToSelf = "WorldContextObject"))
 	static UOverlayWidgetController* GetOverlayWidgetController(const UObject* WorldContextObject);

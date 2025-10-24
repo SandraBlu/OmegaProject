@@ -10,6 +10,7 @@
 #include "GAS/OAttributeSet.h"
 #include "GAS/DataAsset/OAbilityInfo.h"
 #include "GAS/DataAsset/OLevelUpInfo.h"
+#include "UI/OUserWidget.h"
 
 void UOverlayWidgetController::BroadcastInitialValues()
 {
@@ -69,6 +70,8 @@ void UOverlayWidgetController::BindCallbacksToDependencies()
 	}
 	
 }
+
+
 
 
 void UOverlayWidgetController::OnXPChange(int32 NewXP)

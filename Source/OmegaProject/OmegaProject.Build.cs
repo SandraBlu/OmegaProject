@@ -9,7 +9,8 @@ public class OmegaProject : ModuleRules
 		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
 	
 		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore", "EnhancedInput", "GameplayAbilities", 
-			"GameplayTasks", "GameplayTags", "AIModule", "Niagara", "NavigationSystem" });
+			"GameplayTasks", "GameplayTags", "AIModule", "Niagara", "NavigationSystem", "CommonUI"
+		});
 
 		PrivateDependencyModuleNames.AddRange(new string[] { "LevelSequence" });
 		

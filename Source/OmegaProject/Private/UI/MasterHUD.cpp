@@ -1,14 +1,14 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "UI/GAS/OHUD.h"
+#include "UI/MasterHUD.h"
 
 #include "UI/OUserWidget.h"
 #include "UI/GAS/Controller/AbilityMenuController.h"
 #include "UI/GAS/Controller/AttributeMenuController.h"
 #include "UI/GAS/Controller/OverlayWidgetController.h"
 
-UOverlayWidgetController* AOHUD::GetOverlayWidgetController(const FWidgetControllerParams& WCParams)
+UOverlayWidgetController* AMasterHUD::GetOverlayWidgetController(const FWidgetControllerParams& WCParams)
 {
 	if (OverlayWidgetController ==nullptr)
 	{
@@ -19,7 +19,7 @@ UOverlayWidgetController* AOHUD::GetOverlayWidgetController(const FWidgetControl
 	return OverlayWidgetController;
 }
 
-UAttributeMenuController* AOHUD::GetAttributeMenuWidgetController(const FWidgetControllerParams& WCParams)
+UAttributeMenuController* AMasterHUD::GetAttributeMenuWidgetController(const FWidgetControllerParams& WCParams)
 {
 	if (AttributeMenuController == nullptr)
 	{
@@ -30,7 +30,7 @@ UAttributeMenuController* AOHUD::GetAttributeMenuWidgetController(const FWidgetC
 	return AttributeMenuController;
 }
 
-UAbilityMenuController* AOHUD::GetAbilityMenuWidgetController(const FWidgetControllerParams& WCParams)
+UAbilityMenuController* AMasterHUD::GetAbilityMenuWidgetController(const FWidgetControllerParams& WCParams)
 {
 	if (AbilityMenuController == nullptr)
 	{
@@ -41,7 +41,7 @@ UAbilityMenuController* AOHUD::GetAbilityMenuWidgetController(const FWidgetContr
 	return AbilityMenuController;
 }
 
-void AOHUD::InitOverlay(APlayerController* PC, APlayerState* PS, UAbilitySystemComponent* ASC, UAttributeSet* AS)
+void AMasterHUD::InitOverlay(APlayerController* PC, APlayerState* PS, UAbilitySystemComponent* ASC, UAttributeSet* AS)
 {
 	checkf(OverlayWidgetClass, TEXT("Overlay Widget Class uninitialized, please fill out BP_HUD"));
 	checkf(OverlayWidgetControllerClass, TEXT("Overlay Widget Controller Class uninitialized, please fill out BP_HUD"));

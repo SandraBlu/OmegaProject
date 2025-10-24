@@ -17,7 +17,8 @@
 #include "GAS/DataAsset/OLevelUpInfo.h"
 #include "Input/OInputComponent.h"
 #include "Input/OInputConfig.h"
-#include "UI/GAS/OHUD.h"
+#include "UI/MasterHUD.h"
+
 
 AOPlayer::AOPlayer()
 {
@@ -226,7 +227,7 @@ void AOPlayer::InitAbilityActorInfo()
 	
 	if (AOPlayerController* RPC = Cast<AOPlayerController>(GetController()))
 	{
-		if (AOHUD* OHUD = Cast<AOHUD>(RPC->GetHUD()))
+		if (AMasterHUD* OHUD = Cast<AMasterHUD>(RPC->GetHUD()))
 		{
 			OHUD->InitOverlay(RPC, OPS, AbilitySystemComponent, AttributeSet);
 		}

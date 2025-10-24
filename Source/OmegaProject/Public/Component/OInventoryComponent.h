@@ -183,7 +183,7 @@ public:
 };
 
 
-UCLASS( ClassGroup=(OmegaProject), DisplayName = "Omega Inventory", meta=(BlueprintSpawnableComponent) )
+UCLASS( ClassGroup=(OmegaProject), Blueprintable, DisplayName = "Omega Inventory", meta=(BlueprintSpawnableComponent) )
 class OMEGAPROJECT_API UOInventoryComponent : public UActorComponent
 {
 	GENERATED_BODY()

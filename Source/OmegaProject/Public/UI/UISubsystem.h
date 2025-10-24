@@ -6,6 +6,7 @@
 #include "Subsystems/GameInstanceSubsystem.h"
 #include "UISubsystem.generated.h"
 
+class UOUserWidget;
 /**
  * provide efficient access to the HUD,
  */
@@ -18,7 +19,7 @@ public:
 
 	//Cached common hud 
 	UPROPERTY(BlueprintReadOnly, Category = "UI")
-	class UOUserWidget* PlayerHUD;
+	UOUserWidget* PlayerHUD;
 
 	//Send a notification to the player HUD
 	UFUNCTION(BlueprintCallable, Category = "UI")

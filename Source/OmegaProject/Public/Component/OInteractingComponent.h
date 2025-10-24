@@ -12,7 +12,7 @@ DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnBeginFocus, class APawn*, Intera
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnEndFocus, class APawn*, Interactor, class UOInteractComponent*, InteractComp);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnInteract, class APawn*, Interactor, class UOInteractComponent*, InteractComp);
 
-UCLASS( ClassGroup=(OmegaProject), DisplayName = "Omega Interactable", meta=(BlueprintSpawnableComponent) )
+UCLASS( ClassGroup=(OmegaProject), Blueprintable, DisplayName = "Omega Interactable", meta=(BlueprintSpawnableComponent) )
 class OMEGAPROJECT_API UOInteractingComponent : public UActorComponent
 {
 	GENERATED_BODY()

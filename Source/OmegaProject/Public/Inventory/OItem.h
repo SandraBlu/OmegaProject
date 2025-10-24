@@ -67,7 +67,7 @@ protected:
 	//Inspects owning inventory to check if this item instance is on server or client 
 	bool HasAuthority() const;
 
-	public:
+public:
 
 	UOItem();
 

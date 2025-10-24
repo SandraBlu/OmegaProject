@@ -18,14 +18,14 @@ public:
 
 	virtual void NativeConstruct() override;
 
-	UFUNCTION(BlueprintImplementableEvent, Category = "Notifications")
-	void ShowNotification(const FText& NotificationText, const float Duration = 5.f);
-
 	UFUNCTION(BlueprintCallable)
 	void SetWidgetController(UObject* InWidgetController);
 	
 	UPROPERTY(BlueprintReadOnly)
 	UObject* WidgetController;
+
+	UFUNCTION(BlueprintImplementableEvent, Category = "Notifications")
+	void ShowNotification(const FText& NotificationText, const float Duration = 5.f);
 
 protected:
 	UFUNCTION(BlueprintImplementableEvent)
